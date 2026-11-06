@@ -19,6 +19,12 @@ export interface SiteConfig {
     crisisText: string;
     ohioCareLine: string;
   };
+  communityResources: {
+    name: string;
+    url: string;
+    domain: string;
+    description: string;
+  };
   standards: {
     narrLevel: string;
     narrDescription: string;
@@ -60,13 +66,21 @@ export const siteConfig: SiteConfig = {
     phone: "1-614-200-2139",
     phoneFormatted: "(614) 200-2139",
     addressLine1: "Made for More Residence",
-    addressLine2: "Ohio Recovery Region",
-    city: "Columbus / Central Ohio",
+    addressLine2: "Chillicothe & Ross County Region",
+    city: "Chillicothe",
     state: "OH",
-    zip: "43215",
+    zip: "45601",
     crisisLine: "988 (National Suicide & Crisis Lifeline)",
     crisisText: "Text 'HOME' to 741741",
     ohioCareLine: "1-800-720-9616 (Ohio CareLine 24/7)",
+  },
+
+  communityResources: {
+    name: "Chillicothe & Ross County Community Resources",
+    url: "https://chillicothecommunityresources.org",
+    domain: "chillicothecommunityresources.org",
+    description:
+      "A comprehensive directory of community services, emergency shelters, food pantries, medical clinics, addiction treatment, and social services throughout Chillicothe and Ross County, Ohio.",
   },
 
   standards: {

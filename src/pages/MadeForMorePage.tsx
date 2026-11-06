@@ -92,7 +92,7 @@ export const MadeForMorePage: React.FC = () => {
                 </span>
                 <h3 className="text-xl font-bold text-white">A Dignified Place to Heal</h3>
                 <p className="text-xs text-slate-300">
-                  Historic red-brick craftsmanship with spacious porch, warm shared spaces, and quiet reflection rooms in Ohio.
+                  Historic red-brick craftsmanship with spacious porch, warm shared spaces, and quiet reflection rooms in Chillicothe / Ross County, Ohio.
                 </p>
               </div>
             </div>

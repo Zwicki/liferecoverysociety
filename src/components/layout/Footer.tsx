@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Phone, Mail, MapPin, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Heart, Phone, Mail, MapPin, ShieldCheck, ArrowRight, ExternalLink, Globe } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 
 export const Footer: React.FC = () => {
@@ -135,7 +135,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-phoenix-500 mt-1 shrink-0" />
-                <span>Central Ohio Region<br />NARR & ORH Residence</span>
+                <span>Chillicothe & Ross County, OH<br />NARR & ORH Level II Residence</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-phoenix-500 shrink-0" />
@@ -150,6 +150,26 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
+
+            {/* Community Services Directory Link */}
+            <div className="mt-4 p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <div className="text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-amber-400" />
+                Community Directory
+              </div>
+              <p className="text-[11px] text-slate-300 mt-1 leading-snug">
+                All community, healthcare & food services in Ross County:
+              </p>
+              <a
+                href={siteConfig.communityResources.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1.5 inline-flex items-center gap-1 text-xs text-phoenix-400 hover:text-phoenix-300 font-semibold transition"
+              >
+                <span>chillicothecommunityresources.org</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
 
             <div className="mt-5 p-3 rounded-lg bg-red-950/40 border border-red-900/60">
               <div className="text-xs font-bold text-red-300 uppercase">24/7 Crisis Support</div>

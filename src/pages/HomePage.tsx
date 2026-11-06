@@ -12,7 +12,9 @@ import {
   ShieldAlert, 
   CheckCircle2, 
   Sun,
-  Flame
+  Flame,
+  ExternalLink,
+  Globe
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
@@ -282,7 +284,7 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
               <p className="text-xs text-slate-400 text-center italic">
-                Our welcoming, historic brick recovery residence located in Central Ohio.
+                Our welcoming, historic brick recovery residence located in Chillicothe / Ross County, Ohio.
               </p>
             </div>
 
@@ -397,6 +399,37 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Chillicothe & Ross County Community Resources Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0">
+              <Globe className="w-6 h-6" />
+            </div>
+            <div className="space-y-1">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+                Local Community Partner & Directory
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Chillicothe & Ross County Community Resources
+              </h3>
+              <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
+                Connect with food assistance, emergency healthcare, recovery groups, counseling, and social services throughout Chillicothe and Ross County at <strong className="text-white">chillicothecommunityresources.org</strong>.
+              </p>
+            </div>
+          </div>
+          <a
+            href={siteConfig.communityResources.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 font-semibold text-sm transition shadow hover:border-amber-400"
+          >
+            <span>Explore Community Directory</span>
+            <ExternalLink className="w-4 h-4 text-amber-400" />
+          </a>
         </div>
       </section>
 

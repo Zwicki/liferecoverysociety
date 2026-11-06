@@ -5,7 +5,9 @@ import {
   MapPin, 
   ShieldAlert, 
   Send, 
-  CheckCircle2
+  CheckCircle2,
+  ExternalLink,
+  Globe
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
@@ -171,9 +173,41 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs text-slate-400 font-medium">Service Region</div>
-                    <div className="text-white font-semibold">Central Ohio / Ohio Recovery Network</div>
+                    <div className="text-white font-semibold">Chillicothe & Ross County, Ohio</div>
                     <div className="text-xs text-slate-400 mt-0.5">Physical residence address provided upon approved admission interview</div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Chillicothe & Ross County Community Resources Directory */}
+            <div className="bg-gradient-to-br from-slate-900 to-slate-850 border border-amber-500/40 rounded-3xl p-6 sm:p-8 space-y-4 shadow-lg">
+              <div className="flex items-center gap-2.5 text-amber-400">
+                <Globe className="w-6 h-6 text-amber-400" />
+                <h3 className="text-lg font-bold text-white">Local Community Resources</h3>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Looking for food assistance, healthcare clinics, housing support, emergency shelters, or family services in Chillicothe and Ross County?
+              </p>
+              
+              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+                <div className="text-sm font-bold text-white flex items-center justify-between">
+                  <span>Chillicothe Community Resources</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">Ross County Directory</span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {siteConfig.communityResources.description}
+                </p>
+                <div className="pt-2">
+                  <a
+                    href={siteConfig.communityResources.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-phoenix-600 hover:from-amber-500 hover:to-phoenix-500 text-white font-bold text-xs shadow transition"
+                  >
+                    <span>Visit chillicothecommunityresources.org</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
             </div>
