@@ -12,7 +12,7 @@ set /p commit_msg="Enter update description (press Enter for 'Site update'): "
 if "%commit_msg%"=="" set commit_msg=Site update
 
 %GIT% commit -m "%commit_msg%"
-%GIT% push origin main
+%GIT% push -u origin main
 
 echo.
 echo ========================================================
