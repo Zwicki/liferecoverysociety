@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-slate-900 text-slate-100 antialiased selection:bg-phoenix-600 selection:text-white;
+  }
+}
+
+/* Custom Gradients & Cards */
+.bg-phoenix-gradient {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 50%, #991b1b 100%);
+}
+
+.bg-dark-mesh {
+  background-color: #0b1120;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(234, 88, 12, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(220, 38, 38, 0.10) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(197, 119, 57, 0.08) 0px, transparent 50%);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.25s ease-in-out;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(234, 88, 12, 0.35);
+  box-shadow: 0 12px 30px -10px rgba(234, 88, 12, 0.18);
+}
