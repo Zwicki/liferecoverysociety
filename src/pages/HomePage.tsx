@@ -417,7 +417,7 @@ export const HomePage: React.FC = () => {
                 Chillicothe & Ross County Community Resources
               </h3>
               <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
-                Connect with food assistance, emergency healthcare, recovery groups, counseling, and social services throughout Chillicothe and Ross County at <strong className="text-white">chillicothecommunityresources.org</strong>.
+                Connect with food assistance, emergency healthcare, recovery groups, counseling, and social services throughout Chillicothe and Ross County at <strong className="text-white">chillicothecommunityresources.com</strong>.
               </p>
             </div>
           </div>

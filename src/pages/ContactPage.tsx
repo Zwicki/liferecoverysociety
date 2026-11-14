@@ -205,7 +205,7 @@ export const ContactPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-phoenix-600 hover:from-amber-500 hover:to-phoenix-500 text-white font-bold text-xs shadow transition"
                   >
-                    <span>Visit chillicothecommunityresources.org</span>
+                    <span>Visit chillicothecommunityresources.com</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>

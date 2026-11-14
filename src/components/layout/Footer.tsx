@@ -166,7 +166,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="mt-1.5 inline-flex items-center gap-1 text-xs text-phoenix-400 hover:text-phoenix-300 font-semibold transition"
               >
-                <span>chillicothecommunityresources.org</span>
+                <span>chillicothecommunityresources.com</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

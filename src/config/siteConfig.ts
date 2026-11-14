@@ -77,8 +77,8 @@ export const siteConfig: SiteConfig = {
 
   communityResources: {
     name: "Chillicothe & Ross County Community Resources",
-    url: "https://chillicothecommunityresources.org",
-    domain: "chillicothecommunityresources.org",
+    url: "https://chillicothecommunityresources.com/",
+    domain: "chillicothecommunityresources.com",
     description:
       "A comprehensive directory of community services, emergency shelters, food pantries, medical clinics, addiction treatment, and social services throughout Chillicothe and Ross County, Ohio.",
   },
