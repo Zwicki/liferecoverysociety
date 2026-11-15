@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { MadeForMorePage } from './pages/MadeForMorePage';
+import { CommunityImpactPage } from './pages/CommunityImpactPage';
 import { AdmissionsPage } from './pages/AdmissionsPage';
 import { PartnerPage } from './pages/PartnerPage';
 import { ContactPage } from './pages/ContactPage';
@@ -31,6 +32,7 @@ export const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/made-for-more" element={<MadeForMorePage />} />
+            <Route path="/community-impact" element={<CommunityImpactPage />} />
             <Route path="/admissions" element={<AdmissionsPage />} />
             <Route path="/partner" element={<PartnerPage />} />
             <Route path="/contact" element={<ContactPage />} />

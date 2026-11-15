@@ -83,6 +83,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/community-impact" className="hover:text-phoenix-400 transition">
+                  Community Impact
+                </Link>
+              </li>
+              <li>
                 <Link to="/admissions" className="hover:text-phoenix-400 transition">
                   Admissions & Intake
                 </Link>

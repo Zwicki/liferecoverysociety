@@ -421,15 +421,24 @@ export const HomePage: React.FC = () => {
               </p>
             </div>
           </div>
-          <a
-            href={siteConfig.communityResources.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 font-semibold text-sm transition shadow hover:border-amber-400"
-          >
-            <span>Explore Community Directory</span>
-            <ExternalLink className="w-4 h-4 text-amber-400" />
-          </a>
+          <div className="shrink-0 flex flex-col sm:flex-row gap-3">
+            <Link
+              to="/community-impact"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-phoenix-600 to-amber-600 hover:from-phoenix-500 hover:to-amber-500 text-white font-bold text-sm shadow transition"
+            >
+              <span>View Impact Dashboard & Map</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href={siteConfig.communityResources.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 font-semibold text-sm transition shadow hover:border-amber-400"
+            >
+              <span>Ross County Directory</span>
+              <ExternalLink className="w-4 h-4 text-amber-400" />
+            </a>
+          </div>
         </div>
       </section>
 
