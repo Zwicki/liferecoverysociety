@@ -122,7 +122,7 @@ export const StreetPrayerMap: React.FC<StreetPrayerMapProps> = ({ walks, pins })
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <strong>{mapStats.totalPrayers}</strong> prayers
+              <strong>{mapStats.totalPrayers}</strong> {Number(mapStats.totalPrayers) === 1 ? 'prayer' : 'prayers'}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200">
               <HeartHandshake className="w-3.5 h-3.5 text-emerald-400" />

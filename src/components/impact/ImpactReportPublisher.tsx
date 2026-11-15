@@ -287,19 +287,27 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Neighborhood Corridors Covered:</td>
-                  <td className="py-2 text-right font-bold text-white">{combinedStats.streetsCount} streets</td>
+                  <td className="py-2 text-right font-bold text-white">
+                    {combinedStats.streetsCount} {combinedStats.streetsCount === 1 ? 'street' : 'streets'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Sidewalk Encounters & Check-ins:</td>
-                  <td className="py-2 text-right font-bold text-white">{combinedStats.streetInteractions} people</td>
+                  <td className="py-2 text-right font-bold text-white">
+                    {combinedStats.streetInteractions} {combinedStats.streetInteractions === 1 ? 'person' : 'people'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Personal Prayers Offered:</td>
-                  <td className="py-2 text-right font-bold text-amber-400">{combinedStats.streetPrayers} prayers</td>
+                  <td className="py-2 text-right font-bold text-amber-400">
+                    {combinedStats.streetPrayers} {combinedStats.streetPrayers === 1 ? 'prayer' : 'prayers'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Emergency Needs / Sober Living Links:</td>
-                  <td className="py-2 text-right font-bold text-emerald-400">{combinedStats.streetLinkages} linkages</td>
+                  <td className="py-2 text-right font-bold text-emerald-400">
+                    {combinedStats.streetLinkages} {combinedStats.streetLinkages === 1 ? 'linkage' : 'linkages'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Litter Removed & Neighborhood Cleaned:</td>
@@ -325,27 +333,39 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
               <tbody className="divide-y divide-slate-800/80">
                 <tr>
                   <td className="py-2 text-slate-400">Dedicated Service Hours Delivered:</td>
-                  <td className="py-2 text-right font-bold text-white">{combinedStats.serviceHours} hours</td>
+                  <td className="py-2 text-right font-bold text-white">
+                    {combinedStats.serviceHours} {combinedStats.serviceHours === 1 ? 'hour' : 'hours'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Residents Supported (Men's & Women's):</td>
-                  <td className="py-2 text-right font-bold text-white">{combinedStats.residentCount} sessions</td>
+                  <td className="py-2 text-right font-bold text-white">
+                    {combinedStats.residentCount} {combinedStats.residentCount === 1 ? 'session' : 'sessions'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Community Outreach Members Supported:</td>
-                  <td className="py-2 text-right font-bold text-white">{combinedStats.communityMemberCount} sessions</td>
+                  <td className="py-2 text-right font-bold text-white">
+                    {combinedStats.communityMemberCount} {combinedStats.communityMemberCount === 1 ? 'session' : 'sessions'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Unique Individuals Coached:</td>
-                  <td className="py-2 text-right font-bold text-amber-400">{combinedStats.uniquePeopleServed} individuals</td>
+                  <td className="py-2 text-right font-bold text-amber-400">
+                    {combinedStats.uniquePeopleServed} {combinedStats.uniquePeopleServed === 1 ? 'individual' : 'individuals'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Workforce & Sobriety Milestones:</td>
-                  <td className="py-2 text-right font-bold text-emerald-400">{combinedStats.milestonesCount} milestones</td>
+                  <td className="py-2 text-right font-bold text-emerald-400">
+                    {combinedStats.milestonesCount} {combinedStats.milestonesCount === 1 ? 'milestone' : 'milestones'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-slate-400">Direct Partner Employer Job Placements:</td>
-                  <td className="py-2 text-right font-bold text-phoenix-400">100% Employed or in Training</td>
+                  <td className="py-2 text-right font-bold text-phoenix-400">
+                    {combinedStats.residentCount > 0 ? '100% Employed or in Training' : 'Active Community Outreach Focus'}
+                  </td>
                 </tr>
               </tbody>
             </table>

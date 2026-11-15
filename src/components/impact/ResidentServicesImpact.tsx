@@ -160,7 +160,9 @@ export const ResidentServicesImpact: React.FC<ResidentServicesImpactProps> = ({ 
                 <p className="text-xs text-slate-400">Made for More Men's & Women's Wings</p>
               </div>
             </div>
-            <span className="text-xl font-extrabold text-phoenix-400">{analytics.residentCount} records</span>
+            <span className="text-xl font-extrabold text-phoenix-400">
+              {analytics.residentCount} {analytics.residentCount === 1 ? 'record' : 'records'}
+            </span>
           </div>
 
           <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
@@ -173,7 +175,9 @@ export const ResidentServicesImpact: React.FC<ResidentServicesImpactProps> = ({ 
                 <p className="text-xs text-slate-400">Ross County street outreach & referrals</p>
               </div>
             </div>
-            <span className="text-xl font-extrabold text-amber-400">{analytics.communityCount} records</span>
+            <span className="text-xl font-extrabold text-amber-400">
+              {analytics.communityCount} {analytics.communityCount === 1 ? 'record' : 'records'}
+            </span>
           </div>
         </div>
       </div>
