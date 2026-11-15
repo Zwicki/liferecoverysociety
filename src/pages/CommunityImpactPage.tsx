@@ -14,22 +14,26 @@ import {
   ArrowRight,
   RefreshCw,
   Radio,
-  CheckCircle2
+  CheckCircle2,
+  Building2
 } from 'lucide-react';
 import { StreetPrayerMap } from '../components/impact/StreetPrayerMap';
 import { ResidentServicesImpact } from '../components/impact/ResidentServicesImpact';
+import { ResidenceHouseBreakout } from '../components/impact/ResidenceHouseBreakout';
 import { ImpactReportPublisher } from '../components/impact/ImpactReportPublisher';
 import { 
   IMPACT_SEED_WALKS, 
   IMPACT_SEED_PINS, 
+  IMPACT_SEED_HOUSES,
   IMPACT_SEED_RESIDENT_SERVICES 
 } from '../data/communityImpactData';
-import { WalkSession, EncounterPin, ResidentServiceRecord } from '../types/communityImpact';
+import { WalkSession, EncounterPin, ResidentServiceRecord, RecoveryResidenceHouse } from '../types/communityImpact';
 
 export const CommunityImpactPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'report' | 'map' | 'services'>('report');
+  const [activeTab, setActiveTab] = useState<'report' | 'map' | 'residences' | 'services'>('report');
   const [walks, setWalks] = useState<WalkSession[]>(IMPACT_SEED_WALKS);
   const [pins, setPins] = useState<EncounterPin[]>(IMPACT_SEED_PINS);
+  const [houses, setHouses] = useState<RecoveryResidenceHouse[]>(IMPACT_SEED_HOUSES);
   const [services, setServices] = useState<ResidentServiceRecord[]>(IMPACT_SEED_RESIDENT_SERVICES);
   const [isLiveConnected, setIsLiveConnected] = useState<boolean>(false);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
@@ -61,6 +65,17 @@ export const CommunityImpactPage: React.FC = () => {
             });
             return Array.from(m.values());
           });
+
+          if (Array.isArray(json.houses)) {
+            setHouses(() => {
+              const m = new Map<string, RecoveryResidenceHouse>();
+              IMPACT_SEED_HOUSES.forEach((h) => m.set(h.id, h));
+              json.houses.forEach((h: RecoveryResidenceHouse) => {
+                if (h?.id) m.set(h.id, h);
+              });
+              return Array.from(m.values());
+            });
+          }
 
           setServices(() => {
             const m = new Map<string, ResidentServiceRecord>();
@@ -127,11 +142,11 @@ export const CommunityImpactPage: React.FC = () => {
           Quantifying Faith, Restoration & Community Transformation
         </h1>
         <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-          Combining the sidewalk encounters and prayer walks of the <strong>Hope Dealers</strong> outreach with the residential milestones and workforce readiness of the <strong>Made for More Recovery Residence</strong> (NARR Standard 8).
+          Combining the sidewalk encounters and prayer walks of the <strong>Hope Dealers</strong> outreach with the residential recovery living (NARR Standard 8) and non-resident coaching services of <strong>PUSH for Recovery</strong>.
         </p>
       </section>
 
-      {/* Main Tab Navigation */}
+      {/* Main 4-Tab Navigation */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
           <div className="inline-flex flex-wrap p-1.5 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl gap-2">
@@ -158,7 +173,20 @@ export const CommunityImpactPage: React.FC = () => {
               }`}
             >
               <MapPin className="w-4 h-4" />
-              <span>Street & Prayer Map</span>
+              <span>Hope Dealers Outreach & Map</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab('residences')}
+              className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm transition ${
+                activeTab === 'residences'
+                  ? 'bg-gradient-to-r from-phoenix-600 to-amber-600 text-white shadow-lg shadow-phoenix-900/40'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+              }`}
+            >
+              <Building2 className="w-4 h-4" />
+              <span>Residences (By House)</span>
             </button>
 
             <button
@@ -171,7 +199,7 @@ export const CommunityImpactPage: React.FC = () => {
               }`}
             >
               <Users className="w-4 h-4" />
-              <span>Resident & Community Services</span>
+              <span>Non-Resident Services Hub</span>
             </button>
           </div>
         </div>
@@ -184,6 +212,7 @@ export const CommunityImpactPage: React.FC = () => {
             walks={walks}
             pins={pins}
             services={services}
+            houses={houses}
           />
         )}
 
@@ -191,6 +220,13 @@ export const CommunityImpactPage: React.FC = () => {
           <StreetPrayerMap
             walks={walks}
             pins={pins}
+          />
+        )}
+
+        {activeTab === 'residences' && (
+          <ResidenceHouseBreakout
+            houses={houses}
+            services={services}
           />
         )}
 
@@ -202,7 +238,7 @@ export const CommunityImpactPage: React.FC = () => {
       </section>
 
       {/* Partner with Community Impact CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 print:hidden">
         <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-semibold text-amber-400">
             <HeartHandshake className="w-4 h-4" />

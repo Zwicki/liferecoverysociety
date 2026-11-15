@@ -116,6 +116,8 @@ export type ResidentServiceCategory =
   | 'advocacy_case_mgmt'
   | 'transportation'
   | 'peer_support'
+  | 'peer_recovery_support'
+  | 'recovery_recreation_social'
   | 'food_essential_needs'
   | 'housing_navigation'
   | 'financial_literacy'
@@ -131,35 +133,66 @@ export interface ServiceCategoryMeta {
 }
 
 export const RESIDENT_SERVICE_CATEGORIES: ServiceCategoryMeta[] = [
-  { id: 'counseling_support_group', label: 'Counseling & Support Groups', short: 'Counseling & Groups', icon: 'HeartHandshake', color: 'from-violet-500 to-purple-600' },
+  { id: 'counseling_support_group', label: 'Counseling & Support Groups', short: 'Counseling / Group', icon: 'HeartHandshake', color: 'from-violet-500 to-purple-600' },
+  { id: 'peer_recovery_support', label: 'Peer Recovery Support & Mentorship', short: 'Peer Recovery Support', icon: 'Users', color: 'from-cyan-500 to-blue-600' },
+  { id: 'recovery_recreation_social', label: 'Recovery Recreation & Social Connection', short: 'Recreation & Social', icon: 'Sparkles', color: 'from-lime-500 to-emerald-600' },
   { id: 'vocational_training', label: 'Vocational Training & Workforce Readiness', short: 'Vocational & Jobs', icon: 'Briefcase', color: 'from-emerald-500 to-teal-600' },
-  { id: 'peer_support', label: 'Peer Recovery Support & Mentorship', short: 'Peer Recovery Coaching', icon: 'Users', color: 'from-cyan-500 to-blue-600' },
-  { id: 'housing_navigation', label: 'Housing Navigation & Relocation Support', short: 'Housing Navigation', icon: 'Home', color: 'from-amber-500 to-orange-600' },
-  { id: 'financial_literacy', label: 'Financial Literacy & Personal Budgeting', short: 'Financial Literacy', icon: 'DollarSign', color: 'from-green-500 to-emerald-600' },
-  { id: 'computer_skills', label: 'Basic Computer & Digital Skills Training', short: 'Digital Skills', icon: 'Laptop', color: 'from-indigo-500 to-blue-600' },
+  { id: 'computer_skills', label: 'Basic Computer & Digital Skills Training', short: 'Computer Skills', icon: 'Laptop', color: 'from-indigo-500 to-blue-600' },
   { id: 'ged_education', label: 'GED Preparation & Adult Education', short: 'GED & Education', icon: 'GraduationCap', color: 'from-yellow-500 to-amber-600' },
   { id: 'community_service', label: 'Community Service Linkage & Restitution', short: 'Community Service', icon: 'Award', color: 'from-teal-500 to-emerald-600' },
-  { id: 'advocacy_case_mgmt', label: 'Advocacy, Legal & Court Liaison', short: 'Legal & Court Advocacy', icon: 'Scale', color: 'from-purple-500 to-indigo-600' },
-  { id: 'transportation', label: 'Transportation & Mobility Assistance', short: 'Transportation Aid', icon: 'Car', color: 'from-blue-500 to-sky-600' },
+  { id: 'advocacy_case_mgmt', label: 'Advocacy, Legal & Court Liaison', short: 'Advocacy & Legal', icon: 'Scale', color: 'from-purple-500 to-indigo-600' },
+  { id: 'transportation', label: 'Transportation & Mobility Assistance', short: 'Transportation', icon: 'Car', color: 'from-blue-500 to-sky-600' },
   { id: 'food_essential_needs', label: 'Food, Clothing & Essential Needs Pantry', short: 'Food & Clothing', icon: 'ShoppingBag', color: 'from-rose-500 to-red-600' },
-  { id: 'health_navigation', label: 'Healthcare, Dental & Medical Navigation', short: 'Healthcare Navigation', icon: 'Activity', color: 'from-sky-500 to-cyan-600' },
+  { id: 'housing_navigation', label: 'Housing Navigation & Relocation Support', short: 'Housing Navigation', icon: 'Home', color: 'from-amber-500 to-orange-600' },
+  { id: 'financial_literacy', label: 'Financial Literacy & Personal Budgeting', short: 'Financial Literacy', icon: 'DollarSign', color: 'from-green-500 to-emerald-600' },
+  { id: 'health_navigation', label: 'Healthcare, Dental & Medical Navigation', short: 'Healthcare Nav', icon: 'Activity', color: 'from-sky-500 to-cyan-600' },
+  { id: 'other', label: 'Other Recovery & Community Linkages', short: 'Other Service', icon: 'Sparkles', color: 'from-slate-500 to-slate-700' },
 ];
 
 export interface ResidentServiceRecord {
   id: string;
   recipientType: 'resident' | 'community_member';
   recipientName: string;
+  houseId?: string;
   houseName: string;
   serviceCategory: ResidentServiceCategory;
   serviceTitle: string;
   serviceDate: string;
   durationMinutes: number;
+  directHours?: number;
+  volunteerHours?: number;
   providerName: string;
   fundingSource: string;
   outcomeStatus: 'completed' | 'in_progress' | 'referred';
   milestoneAchieved?: string;
   notes?: string;
   location: string;
+}
+
+export interface RecoveryResidenceHouse {
+  id: string;
+  name: string;
+  shortName: string;
+  gender: 'mens' | 'womens' | 'coed';
+  narrLevel: string;
+  standard: string;
+  address: string;
+  city: string;
+  state: string;
+  capacityBeds: number;
+  currentResidents: number;
+  active: boolean;
+  notes?: string;
+}
+
+export interface ImmediateNeedsSummary {
+  foodWater: number;
+  shelterHousing: number;
+  detoxRecovery: number;
+  clothingHygiene: number;
+  medicalMental: number;
+  crisisSupport: number;
+  employmentId: number;
 }
 
 export const CHILLICOTHE_CENTER: [number, number] = [39.3331, -82.9824];
