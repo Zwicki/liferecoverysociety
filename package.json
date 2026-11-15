@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.9",
+    "@netlify/functions": "^6.1.1",
     "@types/leaflet": "^1.9.14",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.16.0",

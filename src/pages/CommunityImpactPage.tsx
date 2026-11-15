@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FileText, 
@@ -11,7 +11,10 @@ import {
   Home, 
   DollarSign, 
   Award,
-  ArrowRight
+  ArrowRight,
+  RefreshCw,
+  Radio,
+  CheckCircle2
 } from 'lucide-react';
 import { StreetPrayerMap } from '../components/impact/StreetPrayerMap';
 import { ResidentServicesImpact } from '../components/impact/ResidentServicesImpact';
@@ -21,18 +24,105 @@ import {
   IMPACT_SEED_PINS, 
   IMPACT_SEED_RESIDENT_SERVICES 
 } from '../data/communityImpactData';
+import { WalkSession, EncounterPin, ResidentServiceRecord } from '../types/communityImpact';
 
 export const CommunityImpactPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'report' | 'map' | 'services'>('report');
+  const [walks, setWalks] = useState<WalkSession[]>(IMPACT_SEED_WALKS);
+  const [pins, setPins] = useState<EncounterPin[]>(IMPACT_SEED_PINS);
+  const [services, setServices] = useState<ResidentServiceRecord[]>(IMPACT_SEED_RESIDENT_SERVICES);
+  const [isLiveConnected, setIsLiveConnected] = useState<boolean>(false);
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const [lastSyncedTime, setLastSyncedTime] = useState<string | null>(null);
+
+  // Fetch live aggregated data from Netlify Serverless Sync Endpoint
+  const fetchLiveImpact = useCallback(async (isManual = false) => {
+    if (isManual) setIsRefreshing(true);
+    try {
+      const res = await fetch('/api/impact-sync');
+      if (res.ok) {
+        const json = await res.json();
+        if (json.success && Array.isArray(json.walks) && Array.isArray(json.pins) && Array.isArray(json.services)) {
+          // Safeguard: Merge with baseline seed data to GUARANTEE zero data loss
+          setWalks(() => {
+            const m = new Map<string, WalkSession>();
+            IMPACT_SEED_WALKS.forEach((w) => m.set(w.id, w));
+            json.walks.forEach((w: WalkSession) => {
+              if (w?.id) m.set(w.id, w);
+            });
+            return Array.from(m.values());
+          });
+
+          setPins(() => {
+            const m = new Map<string, EncounterPin>();
+            IMPACT_SEED_PINS.forEach((p) => m.set(p.id, p));
+            json.pins.forEach((p: EncounterPin) => {
+              if (p?.id) m.set(p.id, p);
+            });
+            return Array.from(m.values());
+          });
+
+          setServices(() => {
+            const m = new Map<string, ResidentServiceRecord>();
+            IMPACT_SEED_RESIDENT_SERVICES.forEach((s) => m.set(s.id, s));
+            json.services.forEach((s: ResidentServiceRecord) => {
+              if (s?.id) m.set(s.id, s);
+            });
+            return Array.from(m.values());
+          });
+
+          setIsLiveConnected(true);
+          setLastSyncedTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+        }
+      }
+    } catch {
+      // Retains existing verified records without interruption if offline
+    } finally {
+      if (isManual) {
+        setTimeout(() => setIsRefreshing(false), 500);
+      }
+    }
+  }, []);
+
+  // Poll for updates every 45 seconds while page is active
+  useEffect(() => {
+    fetchLiveImpact();
+    const interval = setInterval(() => {
+      fetchLiveImpact();
+    }, 45000);
+    return () => clearInterval(interval);
+  }, [fetchLiveImpact]);
 
   return (
     <div className="space-y-16 py-12">
       {/* Page Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-phoenix-600/20 to-amber-600/20 border border-phoenix-500/30 text-xs font-semibold text-phoenix-400">
-          <Sparkles className="w-4 h-4 text-amber-500" />
-          <span>Consolidated Community Impact Dashboard & Report</span>
+        <div className="inline-flex flex-wrap items-center justify-center gap-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-phoenix-600/20 to-amber-600/20 border border-phoenix-500/30 text-xs font-semibold text-phoenix-400">
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>Consolidated Community Impact Dashboard & Report</span>
+          </div>
+
+          {/* Live Sync Status Pill */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-300">
+            <span className="flex h-2 w-2 relative">
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isLiveConnected ? 'bg-emerald-400' : 'bg-amber-400'}`}></span>
+              <span className={`relative inline-flex rounded-full h-2 w-2 ${isLiveConnected ? 'bg-emerald-500' : 'bg-amber-500'}`}></span>
+            </span>
+            <span>{isLiveConnected ? 'Dynamic Cloud Sync Active' : 'Connecting Cloud Sync...'}</span>
+            {lastSyncedTime && <span className="text-[10px] text-slate-400">({lastSyncedTime})</span>}
+            <button
+              type="button"
+              onClick={() => fetchLiveImpact(true)}
+              disabled={isRefreshing}
+              title="Refresh live data from Hope Dealers & Push For Recovery"
+              className="ml-1 p-0.5 text-slate-400 hover:text-white transition disabled:opacity-50"
+            >
+              <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-amber-400' : ''}`} />
+            </button>
+          </div>
         </div>
+
         <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
           Quantifying Faith, Restoration & Community Transformation
         </h1>
@@ -91,22 +181,22 @@ export const CommunityImpactPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {activeTab === 'report' && (
           <ImpactReportPublisher
-            walks={IMPACT_SEED_WALKS}
-            pins={IMPACT_SEED_PINS}
-            services={IMPACT_SEED_RESIDENT_SERVICES}
+            walks={walks}
+            pins={pins}
+            services={services}
           />
         )}
 
         {activeTab === 'map' && (
           <StreetPrayerMap
-            walks={IMPACT_SEED_WALKS}
-            pins={IMPACT_SEED_PINS}
+            walks={walks}
+            pins={pins}
           />
         )}
 
         {activeTab === 'services' && (
           <ResidentServicesImpact
-            services={IMPACT_SEED_RESIDENT_SERVICES}
+            services={services}
           />
         )}
       </section>
