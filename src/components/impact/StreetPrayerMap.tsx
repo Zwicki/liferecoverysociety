@@ -198,10 +198,11 @@ export const StreetPrayerMap: React.FC<StreetPrayerMapProps> = ({ walks, pins })
           className="w-full h-full z-0"
           style={{ height: '100%', width: '100%', background: '#0b1120' }}
         >
-          {/* CartoDB Dark Matter tiles */}
+          {/* OpenStreetMap Standard Basemap (100% Free, No API Key Required) */}
           <TileLayer
-            attribution='&copy; <a href="https://carto.com/">CartoDB</a> OpenStreetMap contributors'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            maxZoom={19}
           />
 
           {/* Route Polylines */}
