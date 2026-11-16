@@ -6,92 +6,80 @@ import {
   ImmediateNeedsSummary 
 } from '../types/communityImpact';
 import pushForRecoveryJson from './pushForRecoveryData.json';
+import hopeDealersJson from './hopeDealersData.json';
 
-// Hope Dealers Live Field Baseline (2 walks, 2.2 miles, 7 streets, 9 interactions, 2 prayers, 12 lbs trash, 6 vol hrs)
-export const IMPACT_SEED_WALKS: WalkSession[] = [
-  {
-    id: 'walk-1',
-    date: '2026-11-14',
-    startTime: '2026-11-14T10:00:00.000Z',
-    endTime: '2026-11-14T11:30:00.000Z',
-    durationMinutes: 90,
-    recorderName: 'Rick Fannin',
-    groupMembers: ['Rick Fannin', 'Pastor John Hocker'],
-    groupSize: 2,
-    volunteerHours: 3.0,
-    milesWalked: 1.1,
-    streetsWalked: ['East 7th Street', 'South Hickory Street', 'East 5th Street'],
-    gpsPath: [
-      [39.32878, -82.9815],
-      [39.32878, -82.9776],
-      [39.3308, -82.9776],
-      [39.3308, -82.9730],
-    ],
-    interactionsCount: 2,
-    prayersCount: 1,
-    serviceLinkagesCount: 0,
-    trashBagsCount: 1,
-    trashWeightLbs: 12,
-    notes: 'Hope Dealers street ministry outreach in Chillicothe. Group of 2: Rick Fannin, Pastor John Hocker. 90 mins (3 Vol. Hrs). Streets: East 7th Street, South Hickory Street, East 5th Street. Greeted 2 neighbors, prayed with a friend on East 7th Street, and cleared 1 bag (12 lbs) of trash.',
-  },
-  {
-    id: 'walk-2',
-    date: '2026-11-15',
-    startTime: '2026-11-15T13:30:00.000Z',
-    endTime: '2026-11-15T15:00:00.000Z',
-    durationMinutes: 90,
-    recorderName: 'Rick Fannin',
-    groupMembers: ['Rick Fannin', 'Pastor John Hocker'],
-    groupSize: 2,
-    volunteerHours: 3.0,
-    milesWalked: 1.1,
-    streetsWalked: ['Paint St', 'E Main St', 'Mulberry St', 'E 2nd St'],
-    gpsPath: [
-      [39.3331, -82.9824],
-      [39.3333, -82.9780],
-      [39.3350, -82.9786],
-      [39.3348, -82.9772],
-      [39.3331, -82.9824],
-    ],
-    interactionsCount: 7,
-    prayersCount: 1,
-    serviceLinkagesCount: 0,
-    trashBagsCount: 0,
-    trashWeightLbs: 0,
-    notes: 'Downtown corridor walk connecting Paint St, Main St, Mulberry, and 2nd St. Checked in with 7 neighbors on the sidewalks, shared encouragement, and prayed together for family restoration.',
-  },
-];
+// Normalize push service for frontend
+function normalizeService(s: any): ResidentServiceRecord {
+  const isResident = s.recipientType === 'resident';
+  let cat = s.serviceCategory || 'other';
+  if (cat === 'peer_support') cat = 'peer_recovery_support';
+  if (cat === 'recreation_social') cat = 'recovery_recreation_social';
 
-export const IMPACT_SEED_PINS: EncounterPin[] = [
-  {
-    id: 'pin-1794736086077',
-    walkId: 'walk-1',
-    timestamp: '2026-11-14T10:45:00.000Z',
-    lat: 39.32878,
-    lng: -82.9776,
-    streetName: 'East 7th Street',
-    firstName: 'Friend (Anonymous)',
-    description: 'Loss of leg, prayers for a family member.',
-    type: 'prayer',
-    needCategories: [],
-    loggedByRecorder: 'Rick Fannin',
-    groupMembers: ['Rick Fannin'],
-  },
-  {
-    id: 'pin-1794736086078',
-    walkId: 'walk-2',
-    timestamp: '2026-11-15T14:15:00.000Z',
-    lat: 39.3333,
-    lng: -82.9824,
-    streetName: 'Paint St & E Main St',
-    firstName: 'Neighbor on Sidewalk',
-    description: 'Offered personal prayer for spiritual renewal, inner peace, and family healing.',
-    type: 'prayer',
-    needCategories: [],
-    loggedByRecorder: 'Rick Fannin',
-    groupMembers: ['Rick Fannin', 'Pastor John Hocker'],
-  },
-];
+  const durationMin = Number(s.durationMinutes) || 60;
+  const directHrs = Math.round((durationMin / 60) * 10) / 10;
+  const providersCount = Array.isArray(s.providers) && s.providers.length > 0 ? s.providers.length : 1;
+  const volHrs = s.volunteerHours ?? (Math.round((durationMin / 60) * providersCount * 10) / 10);
+
+  return {
+    id: s.id,
+    recipientType: isResident ? 'resident' : 'community_member',
+    recipientName: s.recipientName || 'Community Member',
+    houseId: s.houseId,
+    houseName: s.houseName || (s.location?.includes('Caldwell') ? 'Mens Made for More House' : ''),
+    serviceCategory: cat,
+    serviceTitle: s.serviceTitle || 'Community Service Activity',
+    serviceDate: s.serviceDate || (s.createdAt ? s.createdAt.slice(0, 10) : new Date().toISOString().slice(0, 10)),
+    durationMinutes: durationMin,
+    directHours: directHrs,
+    volunteerHours: volHrs,
+    providerName: s.providerName || (Array.isArray(s.providers) ? s.providers.join(', ') : 'Rick Fannin'),
+    fundingSource: s.fundingSource || 'Program Supported',
+    outcomeStatus: s.outcomeStatus || 'completed',
+    milestoneAchieved: s.milestoneAchieved,
+    notes: s.notes,
+    location: s.location || 'Mens Made for More House',
+  };
+}
+
+// Normalize walk for frontend
+function normalizeWalk(w: any): WalkSession {
+  const durationMin = Number(w.durationMinutes) || 90;
+  const members = Array.isArray(w.groupMembers) && w.groupMembers.length > 0 ? w.groupMembers : ['Rick Fannin'];
+  const groupSize = Number(w.groupSize) || members.length;
+  const volHrs = Number(w.volunteerHours) || Math.round((durationMin / 60) * groupSize * 10) / 10;
+
+  return {
+    id: w.id,
+    date: w.date || (w.startTime ? w.startTime.slice(0, 10) : '2026-11-14'),
+    startTime: w.startTime || '2026-11-14T10:00:00.000Z',
+    endTime: w.endTime,
+    durationMinutes: durationMin,
+    recorderName: w.recorderName || 'Rick Fannin',
+    groupMembers: members,
+    groupSize: groupSize,
+    volunteerHours: volHrs,
+    milesWalked: Number(w.milesWalked) || 1.1,
+    streetsWalked: Array.isArray(w.streetsWalked) ? w.streetsWalked : ['East 7th Street'],
+    gpsPath: Array.isArray(w.gpsPath) ? w.gpsPath : [],
+    interactionsCount: Number(w.interactionsCount) || 0,
+    prayersCount: Number(w.prayersCount) || 0,
+    serviceLinkagesCount: Number(w.serviceLinkagesCount) || 0,
+    trashBagsCount: Number(w.trashBagsCount) || 0,
+    trashWeightLbs: Number(w.trashWeightLbs) || 0,
+    notes: w.notes,
+  };
+}
+
+// Hope Dealers Live Field Baseline
+export const IMPACT_SEED_WALKS: WalkSession[] = 
+  (hopeDealersJson.walks && hopeDealersJson.walks.length > 0)
+    ? (hopeDealersJson.walks as any[]).map(normalizeWalk)
+    : [];
+
+export const IMPACT_SEED_PINS: EncounterPin[] = 
+  (hopeDealersJson.pins && hopeDealersJson.pins.length > 0)
+    ? (hopeDealersJson.pins as any[])
+    : [];
 
 export const IMPACT_NEEDS_BREAKDOWN: ImmediateNeedsSummary = {
   foodWater: 0,
@@ -104,7 +92,7 @@ export const IMPACT_NEEDS_BREAKDOWN: ImmediateNeedsSummary = {
 };
 
 // Life Recovery Residences (Made for More Houses)
-export const IMPACT_SEED_HOUSES: RecoveryResidenceHouse[] = (pushForRecoveryJson.residences as RecoveryResidenceHouse[]) || [
+export const IMPACT_SEED_HOUSES: RecoveryResidenceHouse[] = (pushForRecoveryJson.residences as unknown as RecoveryResidenceHouse[]) || [
   {
     id: 'res_hope_main',
     name: 'Mens Made for More House',
@@ -115,7 +103,7 @@ export const IMPACT_SEED_HOUSES: RecoveryResidenceHouse[] = (pushForRecoveryJson
     address: '190 Caldwell',
     city: 'Chillicothe',
     state: 'OH',
-    capacityBeds: 6,
+    capacityBeds: 8,
     currentResidents: 1,
     active: true,
     notes: 'Certified Level II monitored sober living with peer governance, random drug testing, and workforce coaching.',
@@ -137,6 +125,8 @@ export const IMPACT_SEED_HOUSES: RecoveryResidenceHouse[] = (pushForRecoveryJson
   },
 ];
 
-// PUSH for Recovery 2 Live Service Encounters (71 sessions, 106 direct hrs, 211 vol hrs, 12 community members)
+// PUSH for Recovery Live Service Encounters (72 sessions including Vocational Training)
 export const IMPACT_SEED_RESIDENT_SERVICES: ResidentServiceRecord[] = 
-  (pushForRecoveryJson.services as unknown as ResidentServiceRecord[]) || [];
+  Array.isArray(pushForRecoveryJson.services)
+    ? (pushForRecoveryJson.services as any[]).map(normalizeService)
+    : [];

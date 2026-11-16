@@ -36,8 +36,10 @@ import {
 function getCategoryIcon(catId: ResidentServiceCategory | string) {
   switch (catId) {
     case 'counseling_support_group': return <HeartHandshake className="w-4 h-4 text-purple-400" />;
-    case 'peer_support': return <Users className="w-4 h-4 text-blue-400" />;
-    case 'recreation_social': return <Smile className="w-4 h-4 text-pink-400" />;
+    case 'peer_support':
+    case 'peer_recovery_support': return <Users className="w-4 h-4 text-blue-400" />;
+    case 'recreation_social':
+    case 'recovery_recreation_social': return <Smile className="w-4 h-4 text-pink-400" />;
     case 'computer_skills': return <Laptop className="w-4 h-4 text-cyan-400" />;
     case 'vocational_training': return <Briefcase className="w-4 h-4 text-amber-400" />;
     case 'ged_education': return <GraduationCap className="w-4 h-4 text-indigo-400" />;
@@ -67,7 +69,13 @@ export const ResidentServicesImpact: React.FC<ResidentServicesImpactProps> = ({ 
   // Filtered Services
   const filteredServices = useMemo(() => {
     return services.filter((s) => {
-      if (selectedCategory !== 'all' && s.serviceCategory !== selectedCategory) return false;
+      if (selectedCategory !== 'all') {
+        const sCat = s.serviceCategory as string;
+        const normalizedCat = sCat === 'peer_support' ? 'peer_recovery_support' :
+                              sCat === 'recreation_social' ? 'recovery_recreation_social' :
+                              sCat;
+        if (normalizedCat !== selectedCategory) return false;
+      }
       if (selectedRecipientType !== 'all' && s.recipientType !== selectedRecipientType) return false;
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
@@ -121,11 +129,15 @@ export const ResidentServicesImpact: React.FC<ResidentServicesImpactProps> = ({ 
     });
 
     services.forEach((s) => {
-      if (!categoryTotals[s.serviceCategory]) {
-        categoryTotals[s.serviceCategory] = { count: 0, hours: 0, pct: 0 };
+      let cat: string = s.serviceCategory;
+      if (cat === 'peer_support') cat = 'peer_recovery_support';
+      if (cat === 'recreation_social') cat = 'recovery_recreation_social';
+
+      if (!categoryTotals[cat]) {
+        categoryTotals[cat] = { count: 0, hours: 0, pct: 0 };
       }
-      categoryTotals[s.serviceCategory].count += 1;
-      categoryTotals[s.serviceCategory].hours += Math.round((s.durationMinutes / 60) * 10) / 10;
+      categoryTotals[cat].count += 1;
+      categoryTotals[cat].hours += Math.round((s.durationMinutes / 60) * 10) / 10;
     });
 
     // Compute percentages
@@ -161,8 +173,8 @@ export const ResidentServicesImpact: React.FC<ResidentServicesImpactProps> = ({ 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3">
           {[
             { id: 'counseling_support_group', title: 'Counseling / Group', sub: 'Therapy, groups, support', icon: HeartHandshake, color: 'text-purple-400' },
-            { id: 'peer_support', title: 'Peer Recovery', sub: 'Mentorship, 1-on-1', icon: Users, color: 'text-blue-400' },
-            { id: 'recreation_social', title: 'Recreation & Social', sub: 'Sober events', icon: Smile, color: 'text-pink-400' },
+            { id: 'peer_recovery_support', title: 'Peer Recovery', sub: 'Mentorship, 1-on-1', icon: Users, color: 'text-blue-400' },
+            { id: 'recovery_recreation_social', title: 'Recreation & Social', sub: 'Sober events', icon: Smile, color: 'text-pink-400' },
             { id: 'computer_skills', title: 'Computer Skills', sub: 'Email, job search', icon: Laptop, color: 'text-cyan-400' },
             { id: 'vocational_training', title: 'Vocational & Jobs', sub: 'Resumes, hiring', icon: Briefcase, color: 'text-amber-400' },
             { id: 'ged_education', title: 'GED / Education', sub: 'Math, literacy', icon: GraduationCap, color: 'text-indigo-400' },

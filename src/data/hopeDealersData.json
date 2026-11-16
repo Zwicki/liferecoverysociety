@@ -1,0 +1,706 @@
+{
+  "walks": [
+    {
+      "id": "walk-hist-1794820172994",
+      "date": "2026-10-29",
+      "startTime": "2026-11-15T14:00:00.000Z",
+      "endTime": "2026-11-15T15:30:00.000Z",
+      "durationMinutes": 90,
+      "recorderName": "Rick Fannin",
+      "recorderEmail": "RFannin25@gmail.com",
+      "groupMembers": [
+        "Rick Fannin",
+        "Adrean Gam",
+        "Johnathon Makni",
+        "Doug Eastes"
+      ],
+      "groupSize": 4,
+      "volunteerHours": 6,
+      "milesWalked": 1.17,
+      "streetsWalked": [
+        "East 2nd Street",
+        "Cutright Drive",
+        "North Rose Street",
+        "E Main St"
+      ],
+      "startPoint": {
+        "lat": 39.33665,
+        "lng": -82.96812,
+        "streetName": "East 2nd Street",
+        "timestamp": "2026-11-15T14:00:00.000Z"
+      },
+      "endPoint": {
+        "lat": 39.33665,
+        "lng": -82.96812,
+        "streetName": "E Main St",
+        "timestamp": "2026-11-15T15:30:00.000Z"
+      },
+      "gpsPath": [
+        [
+          39.33665,
+          -82.96812
+        ],
+        [
+          39.3381,
+          -82.95898
+        ],
+        [
+          39.33685,
+          -82.95869
+        ],
+        [
+          39.33567,
+          -82.96635
+        ],
+        [
+          39.33685,
+          -82.96665
+        ],
+        [
+          39.33665,
+          -82.96812
+        ]
+      ],
+      "interactionLocations": [
+        {
+          "id": "int-pin-pin-hist-1794820172994-0",
+          "walkId": "walk-hist-1794820172994",
+          "lat": 39.33685,
+          "lng": -82.96665,
+          "streetName": "E Main St",
+          "timestamp": "2026-11-15T14:10:00.000Z",
+          "kind": "prayer"
+        },
+        {
+          "id": "int-pin-pin-hist-1794820172994-1",
+          "walkId": "walk-hist-1794820172994",
+          "lat": 39.33685,
+          "lng": -82.96665,
+          "streetName": "E 2nd Street",
+          "timestamp": "2026-11-15T14:20:00.000Z",
+          "kind": "prayer"
+        },
+        {
+          "id": "int-pin-pin-hist-1794820172994-2",
+          "walkId": "walk-hist-1794820172994",
+          "lat": 39.33685,
+          "lng": -82.96665,
+          "streetName": "North Rose Street",
+          "timestamp": "2026-11-15T14:30:00.000Z",
+          "kind": "prayer"
+        }
+      ],
+      "interactionsCount": 8,
+      "prayersCount": 8,
+      "serviceLinkagesCount": 2,
+      "trashBagsCount": 0,
+      "trashWeightLbs": 0,
+      "syncStatus": "synced"
+    },
+    {
+      "id": "walk-hist-1794790284509",
+      "date": "2026-11-05",
+      "startTime": "2026-11-15T14:00:00.000Z",
+      "endTime": "2026-11-15T15:30:00.000Z",
+      "durationMinutes": 90,
+      "recorderName": "Rick Fannin",
+      "recorderEmail": "RFannin25@gmail.com",
+      "groupMembers": [
+        "Rick Fannin",
+        "Pastor John Hocker"
+      ],
+      "groupSize": 2,
+      "volunteerHours": 3,
+      "milesWalked": 1.53,
+      "streetsWalked": [
+        "Jefferson Avenue",
+        "South Douglas Avenue",
+        "Gilmore Street",
+        "Leggett Avenue"
+      ],
+      "startPoint": {
+        "lat": 39.3314,
+        "lng": -82.95592,
+        "streetName": "Jefferson Avenue",
+        "timestamp": "2026-11-15T14:00:00.000Z"
+      },
+      "endPoint": {
+        "lat": 39.3314,
+        "lng": -82.95592,
+        "streetName": "Leggett Avenue",
+        "timestamp": "2026-11-15T15:30:00.000Z"
+      },
+      "gpsPath": [
+        [
+          39.3314,
+          -82.95592
+        ],
+        [
+          39.33157,
+          -82.95584
+        ],
+        [
+          39.33152,
+          -82.95564
+        ],
+        [
+          39.33398,
+          -82.95629
+        ],
+        [
+          39.3346,
+          -82.95257
+        ],
+        [
+          39.33543,
+          -82.9528
+        ],
+        [
+          39.33482,
+          -82.95652
+        ],
+        [
+          39.33566,
+          -82.95673
+        ],
+        [
+          39.33466,
+          -82.96322
+        ],
+        [
+          39.33161,
+          -82.95601
+        ],
+        [
+          39.3314,
+          -82.95592
+        ]
+      ],
+      "interactionLocations": [],
+      "interactionsCount": 8,
+      "prayersCount": 6,
+      "serviceLinkagesCount": 0,
+      "trashBagsCount": 0,
+      "trashWeightLbs": 0,
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T09:58:38.286Z"
+    },
+    {
+      "id": "walk-hist-1794746877231",
+      "date": "2026-11-12",
+      "startTime": "2026-11-14T14:00:00.000Z",
+      "endTime": "2026-11-14T15:30:00.000Z",
+      "durationMinutes": 90,
+      "recorderName": "Rick Fannin",
+      "recorderEmail": "RFannin25@gmail.com",
+      "groupMembers": [
+        "Rick Fannin",
+        "Pastor John Hocker"
+      ],
+      "groupSize": 2,
+      "volunteerHours": 3,
+      "milesWalked": 1.05,
+      "streetsWalked": [
+        "East 7th Street",
+        "South Hickory Street",
+        "East 5th Street"
+      ],
+      "startPoint": {
+        "lat": 39.32817,
+        "lng": -82.98027,
+        "streetName": "East 7th Street",
+        "timestamp": "2026-11-14T14:00:00.000Z"
+      },
+      "endPoint": {
+        "lat": 39.32817,
+        "lng": -82.98027,
+        "streetName": "East 5th Street",
+        "timestamp": "2026-11-14T15:30:00.000Z"
+      },
+      "gpsPath": [
+        [
+          39.32817,
+          -82.98027
+        ],
+        [
+          39.32927,
+          -82.97326
+        ],
+        [
+          39.33096,
+          -82.97521
+        ],
+        [
+          39.33149,
+          -82.97536
+        ],
+        [
+          39.3308,
+          -82.97991
+        ],
+        [
+          39.32841,
+          -82.97933
+        ],
+        [
+          39.32817,
+          -82.98027
+        ]
+      ],
+      "interactionLocations": [],
+      "interactionsCount": 2,
+      "prayersCount": 1,
+      "serviceLinkagesCount": 0,
+      "trashBagsCount": 1,
+      "trashWeightLbs": 12,
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T09:59:03.059Z"
+    },
+    {
+      "id": "walk-hist-1794750661989",
+      "date": "2026-10-29",
+      "startTime": "2026-10-29T14:00:00.000Z",
+      "endTime": "2026-10-29T15:30:00.000Z",
+      "durationMinutes": 90,
+      "recorderName": "Rick Fannin",
+      "recorderEmail": "RFannin25@gmail.com",
+      "groupMembers": [
+        "Rick Fannin",
+        "Pastor John Hocker"
+      ],
+      "groupSize": 2,
+      "volunteerHours": 3,
+      "milesWalked": 1.1,
+      "streetsWalked": [
+        "Jefferson Avenue",
+        "South Douglas Avenue",
+        "South Watt Street"
+      ],
+      "startPoint": {
+        "lat": 39.33145,
+        "lng": -82.95587,
+        "streetName": "Jefferson Avenue",
+        "timestamp": "2026-10-29T14:00:00.000Z"
+      },
+      "endPoint": {
+        "lat": 39.33145,
+        "lng": -82.95587,
+        "streetName": "Jefferson Avenue",
+        "timestamp": "2026-10-29T15:30:00.000Z"
+      },
+      "gpsPath": [
+        [
+          39.33145,
+          -82.95587
+        ],
+        [
+          39.33156,
+          -82.95581
+        ],
+        [
+          39.33148,
+          -82.95564
+        ],
+        [
+          39.33026,
+          -82.95538
+        ],
+        [
+          39.33323,
+          -82.9629
+        ],
+        [
+          39.33454,
+          -82.96323
+        ],
+        [
+          39.33159,
+          -82.9559
+        ],
+        [
+          39.33145,
+          -82.95587
+        ]
+      ],
+      "interactionLocations": [],
+      "interactionsCount": 7,
+      "prayersCount": 0,
+      "serviceLinkagesCount": 0,
+      "trashBagsCount": 0,
+      "trashWeightLbs": 0,
+      "syncStatus": "synced"
+    }
+  ],
+  "pins": [
+    {
+      "id": "pin-1794860131905",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T20:15:31.904Z",
+      "lat": 39.33115,
+      "lng": -82.97763,
+      "streetName": "637 Central Center, Chillicothe, OH 45601",
+      "firstName": "Friend (Anonymous)",
+      "peopleCount": 1,
+      "description": "Connected Friend (Anonymous) (1 person) with community resources and prayed together.",
+      "type": "service",
+      "needCategories": [
+        "detox_recovery"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T20:15:32.187Z"
+    },
+    {
+      "id": "pin-1794824234660",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T10:17:14.660Z",
+      "lat": 39.33501,
+      "lng": -82.95269,
+      "streetName": "198 South Brownell Street",
+      "firstName": "Group of 5 Family Members",
+      "peopleCount": 5,
+      "description": "Prayed with a group of 5 family members for God's to open doors for them, bless family, relationship, and home.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T10:17:15.048Z"
+    },
+    {
+      "id": "pin-1794823585971",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T10:06:25.971Z",
+      "lat": 39.33125,
+      "lng": -82.95789,
+      "streetName": "Adams Avenue",
+      "firstName": "6 Anonymous Individuals in Recovery",
+      "peopleCount": 6,
+      "description": "Linked 6 people in recovery with a hot meal.",
+      "type": "both",
+      "needCategories": [
+        "food_water"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T12:01:34.147Z"
+    },
+    {
+      "id": "pin-1794823523246",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T10:05:23.246Z",
+      "lat": 39.3302,
+      "lng": -82.97977,
+      "streetName": "Enderlin Circle",
+      "firstName": "3 anonymous friends we met in the park",
+      "peopleCount": 3,
+      "description": "Linked 3 people in the park with a hot meal.",
+      "type": "service",
+      "needCategories": [
+        "food_water"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T20:15:32.187Z"
+    },
+    {
+      "id": "pin-1794821317895",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T09:28:37.895Z",
+      "lat": 39.32961,
+      "lng": -82.97962,
+      "streetName": "Mill Street",
+      "firstName": "Friend (Anonymous)",
+      "peopleCount": 1,
+      "description": "Currently in a psychotic episode, contacted the mobile crisis unit for onsite assessment and support, provided a list of community services, and a safety plan.",
+      "type": "service",
+      "needCategories": [
+        "crisis_support"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T20:15:32.187Z"
+    },
+    {
+      "id": "pin-1794821225209",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T09:27:05.209Z",
+      "lat": 39.32901,
+      "lng": -82.97948,
+      "streetName": "Mill Street",
+      "firstName": "Friend (Anonymous)",
+      "peopleCount": 1,
+      "description": "Currently homeless and provided a list of all appartments and landloards in Chillicothe.",
+      "type": "service",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T20:15:32.187Z"
+    },
+    {
+      "id": "pin-1794820431275",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T09:13:51.275Z",
+      "lat": 39.33646,
+      "lng": -82.96124,
+      "streetName": "East Main Street",
+      "firstName": "Shakita",
+      "peopleCount": 1,
+      "description": "Prayed for peace with the passing of her mother, prayed for God's protection as she is homeless, prayed for God to open doors for her in finding a rehab facility, and linked her with a list of resources for possible rehabs and shelters.",
+      "type": "both",
+      "needCategories": [
+        "medical_mental",
+        "detox_recovery",
+        "shelter_housing"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T11:42:26.982Z"
+    },
+    {
+      "id": "pin-1794819538420",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T08:58:58.420Z",
+      "lat": 39.33413,
+      "lng": -82.95536,
+      "streetName": "Gilmore Street",
+      "firstName": "Scott and Wife",
+      "peopleCount": 2,
+      "description": "For healing for Scott and blessings for recovery of the community.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T12:01:34.147Z"
+    },
+    {
+      "id": "pin-1794819482143",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T08:58:02.143Z",
+      "lat": 39.33429,
+      "lng": -82.95443,
+      "streetName": "Gilmore Street",
+      "firstName": "Group of 2 Friends",
+      "peopleCount": 2,
+      "description": "For continued blessings for their friends and family",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T12:01:34.147Z"
+    },
+    {
+      "id": "pin-1794819443361",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-16T08:57:23.361Z",
+      "lat": 39.33445,
+      "lng": -82.9535,
+      "streetName": "Gilmore Street",
+      "firstName": "Group of 2 Friends",
+      "peopleCount": 2,
+      "description": "For continued blessings on their home and family.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T12:01:34.147Z"
+    },
+    {
+      "id": "pin-hist-1794820172994-2",
+      "walkId": "walk-hist-1794820172994",
+      "timestamp": "2026-11-15T14:30:00.000Z",
+      "lat": 39.33626,
+      "lng": -82.9665,
+      "streetName": "North Rose Street",
+      "firstName": "Husband and Wife",
+      "peopleCount": 2,
+      "description": "Prayed for blessings on this couple, their marriage, and their home.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin",
+        "Adrean Gam",
+        "Johnathon Makni",
+        "Doug Eastes"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T13:00:58.505Z"
+    },
+    {
+      "id": "pin-hist-1794820172994-1",
+      "walkId": "walk-hist-1794820172994",
+      "timestamp": "2026-11-15T14:20:00.000Z",
+      "lat": 39.33713,
+      "lng": -82.96507,
+      "streetName": "E 2nd Street",
+      "firstName": "Anonymous Mother",
+      "peopleCount": 1,
+      "description": "Prayed for blessing on this mother, her children, and the home.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin",
+        "Adrean Gam",
+        "Johnathon Makni",
+        "Doug Eastes"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T11:42:26.982Z"
+    },
+    {
+      "id": "pin-hist-1794820172994-0",
+      "walkId": "walk-hist-1794820172994",
+      "timestamp": "2026-11-15T14:10:00.000Z",
+      "lat": 39.33606,
+      "lng": -82.9638,
+      "streetName": "E Main St",
+      "firstName": "Shakita",
+      "peopleCount": 1,
+      "description": "Prayed for peace with the passing of her mother, and for God to open doors for detox, provided a list of detox / impatient providers.",
+      "type": "both",
+      "needCategories": [
+        "detox_recovery",
+        "medical_mental"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin",
+        "Adrean Gam",
+        "Johnathon Makni",
+        "Doug Eastes"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T11:42:26.982Z"
+    },
+    {
+      "id": "pin-1794750727159",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-15T13:52:07.159Z",
+      "lat": 39.33224,
+      "lng": -82.96039,
+      "streetName": "Adams Avenue",
+      "firstName": "Susan",
+      "description": "Prayed with Susan for healing in her leg.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T12:01:34.147Z"
+    },
+    {
+      "id": "pin-1794736086077",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-14T09:48:06.077Z",
+      "lat": 39.32872,
+      "lng": -82.97677,
+      "streetName": "East 7th Street",
+      "firstName": "Friend (Anonymous)",
+      "description": "Loss of leg, prayers for a family member.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T11:42:26.982Z"
+    },
+    {
+      "id": "pin-1794821673944",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-05T09:34:33.944Z",
+      "lat": 39.33513,
+      "lng": -82.95466,
+      "streetName": "Fleet Street",
+      "firstName": "Pete and his daughter",
+      "peopleCount": 2,
+      "description": "Prayed for peace and healing heading into Pete's surgery, and prayed for God's continued blessing and direction in his daughter's recovery journey.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T12:01:34.147Z"
+    },
+    {
+      "id": "pin-1794821454504",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-03T09:30:54.504Z",
+      "lat": 39.33762,
+      "lng": -82.96203,
+      "streetName": "East 2nd Street",
+      "firstName": "Friend (Anonymous)",
+      "peopleCount": 1,
+      "description": "Male in a mental health crisis, Narcan deployed, police & EMS dispatched, prayed for individual, provided addiction recovery and mental health referral.",
+      "type": "both",
+      "needCategories": [
+        "crisis_support",
+        "detox_recovery",
+        "medical_mental"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T09:38:16.159Z"
+    },
+    {
+      "id": "pin-1794821568491",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-10-02T09:32:48.491Z",
+      "lat": 39.33675,
+      "lng": -82.96739,
+      "streetName": "29 North McArthur Street",
+      "firstName": "Crystal",
+      "peopleCount": 1,
+      "description": "A female had overdosed in the alley, Narcan was deployed, and we prayed for God to help her find her way into recovery.",
+      "type": "both",
+      "needCategories": [
+        "crisis_support"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-16T10:12:40.809Z"
+    }
+  ]
+}

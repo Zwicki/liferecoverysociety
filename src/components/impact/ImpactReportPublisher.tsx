@@ -113,11 +113,15 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
       categoryBreakdown[cat.id] = { count: 0, hours: 0 };
     });
     filteredServices.forEach((s) => {
-      if (!categoryBreakdown[s.serviceCategory]) {
-        categoryBreakdown[s.serviceCategory] = { count: 0, hours: 0 };
+      let cat: string = s.serviceCategory;
+      if (cat === 'peer_support') cat = 'peer_recovery_support';
+      if (cat === 'recreation_social') cat = 'recovery_recreation_social';
+
+      if (!categoryBreakdown[cat]) {
+        categoryBreakdown[cat] = { count: 0, hours: 0 };
       }
-      categoryBreakdown[s.serviceCategory].count += 1;
-      categoryBreakdown[s.serviceCategory].hours += Math.round((s.durationMinutes / 60) * 10) / 10;
+      categoryBreakdown[cat].count += 1;
+      categoryBreakdown[cat].hours += Math.round((s.durationMinutes / 60) * 10) / 10;
     });
 
     return {
