@@ -96,8 +96,15 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
     const streetVolHours = filteredWalks.reduce((sum, w) => sum + w.volunteerHours, 0);
     const streetRouteHours = filteredWalks.reduce((sum, w) => sum + (w.durationMinutes / 60), 0);
     const streetInteractions = filteredWalks.reduce((sum, w) => sum + w.interactionsCount, 0);
-    const walkPrayers = filteredWalks.reduce((sum, w) => sum + w.prayersCount, 0);
-    const streetPrayers = Math.max(walkPrayers, prayerRoster.length);
+    const walkIds = new Set(filteredWalks.map((w) => w.id));
+    const standalonePrayers = prayerRoster.filter(
+      (p) => !p.walkId || !walkIds.has(p.walkId)
+    ).length;
+    const streetPrayers =
+      filteredWalks.reduce((sum, w) => {
+        const pinsForWalk = prayerRoster.filter((p) => p.walkId === w.id);
+        return sum + Math.max(w.prayersCount || 0, pinsForWalk.length);
+      }, 0) + standalonePrayers;
     const streetLinkages = filteredWalks.reduce((sum, w) => sum + w.serviceLinkagesCount, 0);
     const trashWeightLbs = filteredWalks.reduce((sum, w) => sum + w.trashWeightLbs, 0);
     const uniqueStreets = Array.from(new Set(filteredWalks.flatMap((w) => w.streetsWalked)));
