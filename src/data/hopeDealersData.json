@@ -1,6 +1,65 @@
 {
   "walks": [
     {
+      "id": "walk-1794867353150",
+      "date": "2026-11-16",
+      "startTime": "2026-11-16T21:47:44.251Z",
+      "endTime": "2026-11-16T22:15:56.360Z",
+      "durationMinutes": 60,
+      "recorderName": "Rick Fannin",
+      "recorderEmail": "RFannin25@gmail.com",
+      "groupMembers": [
+        "Rick Fannin",
+        "Christy Fay"
+      ],
+      "groupSize": 2,
+      "volunteerHours": 2,
+      "milesWalked": 0.86,
+      "streetsWalked": [
+        "East 2nd Street",
+        "North McArthur Street",
+        "North Rose Street",
+        "North Brownell Street",
+        "Prospect Street",
+        "North Watt Street",
+        "East Water Street"
+      ],
+      "startPoint": {
+        "lat": 39.33674,
+        "lng": -82.96815,
+        "streetName": "East 2nd Street",
+        "timestamp": "2026-11-16T21:47:44.251Z"
+      },
+      "endPoint": {
+        "lat": 39.33712,
+        "lng": -82.9659,
+        "streetName": "East Water Street",
+        "timestamp": "2026-11-16T22:15:56.360Z"
+      },
+      "gpsPath": [
+        [
+          39.33674,
+          -82.96815
+        ],
+        [
+          39.33809,
+          -82.9591
+        ],
+        [
+          39.33712,
+          -82.9659
+        ]
+      ],
+      "interactionLocations": [],
+      "interactionsCount": 2,
+      "prayersCount": 2,
+      "serviceLinkagesCount": 1,
+      "trashBagsCount": 0,
+      "trashWeightLbs": 0,
+      "syncStatus": "synced",
+      "updatedAt": "2026-11-19T15:32:14.291Z"
+    },
+    {
       "id": "walk-hist-1794820172994",
       "date": "2026-10-29",
       "startTime": "2026-11-15T14:00:00.000Z",
@@ -333,12 +392,33 @@
   ],
   "pins": [
     {
+      "id": "pin-1795102811163",
+      "walkId": "walk-map-direct",
+      "timestamp": "2026-11-19T15:40:11.163Z",
+      "lat": 39.33277,
+      "lng": -82.95615,
+      "streetName": "Madison Avenue",
+      "firstName": "Myles and his daugher",
+      "peopleCount": 2,
+      "description": "Prayed for a father and daughter for God to open doors for him and his career and blessings on their family.",
+      "type": "prayer",
+      "needCategories": [],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin"
+      ],
+      "syncStatus": "synced",
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:40:11.163Z"
+    },
+    {
       "id": "pin-1794860131905",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T20:15:31.904Z",
-      "lat": 39.33115,
-      "lng": -82.97763,
-      "streetName": "637 Central Center, Chillicothe, OH 45601",
+      "lat": 39.337584,
+      "lng": -83.001666,
+      "streetName": "Mill Street",
       "firstName": "Friend (Anonymous)",
       "peopleCount": 1,
       "description": "Connected Friend (Anonymous) (1 person) with community resources and prayed together.",
@@ -351,15 +431,17 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T20:15:32.187Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:35:31.756Z"
     },
     {
       "id": "pin-1794824234660",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T10:17:14.660Z",
-      "lat": 39.33501,
-      "lng": -82.95269,
-      "streetName": "198 South Brownell Street",
+      "lat": 39.333305,
+      "lng": -82.964357,
+      "streetName": "South Brownell Street",
       "firstName": "Group of 5 Family Members",
       "peopleCount": 5,
       "description": "Prayed with a group of 5 family members for God's to open doors for them, bless family, relationship, and home.",
@@ -370,15 +452,17 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T10:17:15.048Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:28:11.618Z"
     },
     {
       "id": "pin-1794823585971",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T10:06:25.971Z",
-      "lat": 39.33125,
-      "lng": -82.95789,
-      "streetName": "Adams Avenue",
+      "lat": 39.338439,
+      "lng": -82.98178,
+      "streetName": "Enderlin Circle, Chillicothe, OH 45601",
       "firstName": "6 Anonymous Individuals in Recovery",
       "peopleCount": 6,
       "description": "Linked 6 people in recovery with a hot meal.",
@@ -391,36 +475,17 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T12:01:34.147Z"
-    },
-    {
-      "id": "pin-1794823523246",
-      "walkId": "walk-map-direct",
-      "timestamp": "2026-11-16T10:05:23.246Z",
-      "lat": 39.3302,
-      "lng": -82.97977,
-      "streetName": "Enderlin Circle",
-      "firstName": "3 anonymous friends we met in the park",
-      "peopleCount": 3,
-      "description": "Linked 3 people in the park with a hot meal.",
-      "type": "service",
-      "needCategories": [
-        "food_water"
-      ],
-      "loggedByRecorder": "Rick Fannin",
-      "groupMembers": [
-        "Rick Fannin"
-      ],
-      "syncStatus": "synced",
-      "updatedAt": "2026-11-16T20:15:32.187Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:21:58.415Z"
     },
     {
       "id": "pin-1794821317895",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T09:28:37.895Z",
-      "lat": 39.32961,
-      "lng": -82.97962,
-      "streetName": "Mill Street",
+      "lat": 39.337739,
+      "lng": -83.001913,
+      "streetName": "637 Central Center",
       "firstName": "Friend (Anonymous)",
       "peopleCount": 1,
       "description": "Currently in a psychotic episode, contacted the mobile crisis unit for onsite assessment and support, provided a list of community services, and a safety plan.",
@@ -433,14 +498,16 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T20:15:32.187Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:34:23.694Z"
     },
     {
       "id": "pin-1794821225209",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T09:27:05.209Z",
-      "lat": 39.32901,
-      "lng": -82.97948,
+      "lat": 39.3378,
+      "lng": -83.001913,
       "streetName": "Mill Street",
       "firstName": "Friend (Anonymous)",
       "peopleCount": 1,
@@ -452,14 +519,16 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T20:15:32.187Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:34:55.114Z"
     },
     {
       "id": "pin-1794820431275",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T09:13:51.275Z",
-      "lat": 39.33646,
-      "lng": -82.96124,
+      "lat": 39.335976,
+      "lng": -82.964351,
       "streetName": "East Main Street",
       "firstName": "Shakita",
       "peopleCount": 1,
@@ -475,14 +544,17 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T11:42:26.982Z"
+      "manuallyRelocated": false,
+      "snapToPath": true,
+      "snappedWalkId": "nearest",
+      "updatedAt": "2026-11-19T15:33:05.943Z"
     },
     {
       "id": "pin-1794819538420",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T08:58:58.420Z",
-      "lat": 39.33413,
-      "lng": -82.95536,
+      "lat": 39.334346,
+      "lng": -82.95478,
       "streetName": "Gilmore Street",
       "firstName": "Scott and Wife",
       "peopleCount": 2,
@@ -494,15 +566,16 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T12:01:34.147Z"
+      "updatedAt": "2026-11-19T15:35:50.972Z",
+      "manuallyRelocated": true
     },
     {
       "id": "pin-1794819482143",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-16T08:58:02.143Z",
-      "lat": 39.33429,
-      "lng": -82.95443,
-      "streetName": "Gilmore Street",
+      "lat": 39.337306,
+      "lng": -82.963984,
+      "streetName": "North Watt Street",
       "firstName": "Group of 2 Friends",
       "peopleCount": 2,
       "description": "For continued blessings for their friends and family",
@@ -513,26 +586,10 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T12:01:34.147Z"
-    },
-    {
-      "id": "pin-1794819443361",
-      "walkId": "walk-map-direct",
-      "timestamp": "2026-11-16T08:57:23.361Z",
-      "lat": 39.33445,
-      "lng": -82.9535,
-      "streetName": "Gilmore Street",
-      "firstName": "Group of 2 Friends",
-      "peopleCount": 2,
-      "description": "For continued blessings on their home and family.",
-      "type": "prayer",
-      "needCategories": [],
-      "loggedByRecorder": "Rick Fannin",
-      "groupMembers": [
-        "Rick Fannin"
-      ],
-      "syncStatus": "synced",
-      "updatedAt": "2026-11-16T12:01:34.147Z"
+      "manuallyRelocated": false,
+      "snapToPath": true,
+      "snappedWalkId": "nearest",
+      "updatedAt": "2026-11-19T15:44:48.175Z"
     },
     {
       "id": "pin-hist-1794820172994-2",
@@ -554,14 +611,17 @@
         "Doug Eastes"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T13:00:58.505Z"
+      "manuallyRelocated": false,
+      "snapToPath": true,
+      "snappedWalkId": "nearest",
+      "updatedAt": "2026-11-19T15:44:07.005Z"
     },
     {
       "id": "pin-hist-1794820172994-1",
       "walkId": "walk-hist-1794820172994",
       "timestamp": "2026-11-15T14:20:00.000Z",
-      "lat": 39.33713,
-      "lng": -82.96507,
+      "lat": 39.336872,
+      "lng": -82.967289,
       "streetName": "E 2nd Street",
       "firstName": "Anonymous Mother",
       "peopleCount": 1,
@@ -576,15 +636,17 @@
         "Doug Eastes"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T11:42:26.982Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:31:38.991Z"
     },
     {
       "id": "pin-hist-1794820172994-0",
       "walkId": "walk-hist-1794820172994",
       "timestamp": "2026-11-15T14:10:00.000Z",
-      "lat": 39.33606,
-      "lng": -82.9638,
-      "streetName": "E Main St",
+      "lat": 39.337235,
+      "lng": -83.001816,
+      "streetName": "Central Center",
       "firstName": "Shakita",
       "peopleCount": 1,
       "description": "Prayed for peace with the passing of her mother, and for God to open doors for detox, provided a list of detox / impatient providers.",
@@ -601,14 +663,41 @@
         "Doug Eastes"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T11:42:26.982Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:35:08.258Z"
+    },
+    {
+      "id": "pin-hist-1794867920174-0",
+      "walkId": "walk-hist-1794867920173",
+      "timestamp": "2026-11-15T14:10:00.000Z",
+      "lat": 39.337872,
+      "lng": -82.960626,
+      "streetName": "East 2nd Street",
+      "firstName": "Kennedy and her mom",
+      "peopleCount": 1,
+      "description": "Read for peace in her household and healing in their families relationships",
+      "type": "both",
+      "needCategories": [
+        "medical_mental"
+      ],
+      "loggedByRecorder": "Rick Fannin",
+      "groupMembers": [
+        "Rick Fannin",
+        "Christy Fay"
+      ],
+      "syncStatus": "synced",
+      "manuallyRelocated": false,
+      "snapToPath": true,
+      "snappedWalkId": "nearest",
+      "updatedAt": "2026-11-19T15:43:52.176Z"
     },
     {
       "id": "pin-1794750727159",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-15T13:52:07.159Z",
-      "lat": 39.33224,
-      "lng": -82.96039,
+      "lat": 39.33174,
+      "lng": -82.95914,
       "streetName": "Adams Avenue",
       "firstName": "Susan",
       "description": "Prayed with Susan for healing in her leg.",
@@ -619,7 +708,7 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T12:01:34.147Z"
+      "updatedAt": "2026-11-16T22:48:53.675Z"
     },
     {
       "id": "pin-1794736086077",
@@ -628,7 +717,8 @@
       "lat": 39.32872,
       "lng": -82.97677,
       "streetName": "East 7th Street",
-      "firstName": "Friend (Anonymous)",
+      "firstName": "Brandon",
+      "peopleCount": 1,
       "description": "Loss of leg, prayers for a family member.",
       "type": "prayer",
       "needCategories": [],
@@ -637,7 +727,9 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T11:42:26.982Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:40:48.225Z"
     },
     {
       "id": "pin-1794821673944",
@@ -662,8 +754,8 @@
       "id": "pin-1794821454504",
       "walkId": "walk-map-direct",
       "timestamp": "2026-11-03T09:30:54.504Z",
-      "lat": 39.33762,
-      "lng": -82.96203,
+      "lat": 39.336319,
+      "lng": -82.970711,
       "streetName": "East 2nd Street",
       "firstName": "Friend (Anonymous)",
       "peopleCount": 1,
@@ -679,14 +771,16 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T09:38:16.159Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:26:56.281Z"
     },
     {
       "id": "pin-1794821568491",
       "walkId": "walk-map-direct",
       "timestamp": "2026-10-02T09:32:48.491Z",
-      "lat": 39.33675,
-      "lng": -82.96739,
+      "lat": 39.336138,
+      "lng": -82.967491,
       "streetName": "29 North McArthur Street",
       "firstName": "Crystal",
       "peopleCount": 1,
@@ -700,7 +794,9 @@
         "Rick Fannin"
       ],
       "syncStatus": "synced",
-      "updatedAt": "2026-11-16T10:12:40.809Z"
+      "manuallyRelocated": true,
+      "snapToPath": false,
+      "updatedAt": "2026-11-19T15:30:49.714Z"
     }
   ]
 }

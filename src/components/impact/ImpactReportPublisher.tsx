@@ -72,6 +72,23 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
     return { filteredWalks: fw, filteredPins: fp, filteredServices: fs, periodLabel: label };
   }, [walks, pins, services, period]);
 
+  // Sorted Prayer Roster for Active Intercession (sorted descending by timestamp, most recent first)
+  const prayerRoster = useMemo(() => {
+    const list = filteredPins.filter((p) => {
+      if (p.type === 'prayer' || p.type === 'both' || !p.type) return true;
+      if (p.description && p.description.toLowerCase().includes('pray')) return true;
+      return false;
+    });
+
+    const activeList = list.length > 0 ? list : filteredPins;
+
+    return [...activeList].sort((a, b) => {
+      const timeA = new Date(a.timestamp || 0).getTime();
+      const timeB = new Date(b.timestamp || 0).getTime();
+      return timeB - timeA;
+    });
+  }, [filteredPins]);
+
   // Aggregate Combined Metrics
   const stats = useMemo(() => {
     // Hope Dealers Outreach
@@ -79,7 +96,8 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
     const streetVolHours = filteredWalks.reduce((sum, w) => sum + w.volunteerHours, 0);
     const streetRouteHours = filteredWalks.reduce((sum, w) => sum + (w.durationMinutes / 60), 0);
     const streetInteractions = filteredWalks.reduce((sum, w) => sum + w.interactionsCount, 0);
-    const streetPrayers = filteredWalks.reduce((sum, w) => sum + w.prayersCount, 0);
+    const walkPrayers = filteredWalks.reduce((sum, w) => sum + w.prayersCount, 0);
+    const streetPrayers = Math.max(walkPrayers, prayerRoster.length);
     const streetLinkages = filteredWalks.reduce((sum, w) => sum + w.serviceLinkagesCount, 0);
     const trashWeightLbs = filteredWalks.reduce((sum, w) => sum + w.trashWeightLbs, 0);
     const uniqueStreets = Array.from(new Set(filteredWalks.flatMap((w) => w.streetsWalked)));
@@ -476,21 +494,102 @@ export const ImpactReportPublisher: React.FC<ImpactReportPublisherProps> = ({
             </div>
           </div>
 
-          {/* Sidewalk Prayer Registry Excerpt */}
-          <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2 print:bg-gray-50 print:border-gray-300">
-            <span className="font-bold text-white print:text-black text-xs uppercase tracking-wider block">
-              Sidewalk Prayer Roster Excerpt (Active Intercession)
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 print:bg-white print:border-gray-300">
-                <div className="font-bold text-amber-400 print:text-amber-700">Friend (Anonymous) • 11/14/2026</div>
-                <div className="text-slate-400 print:text-gray-600 text-[11px]">East 7th Street • Group: Rick Fannin</div>
-                <p className="text-slate-300 print:text-gray-800 text-xs mt-1 italic">"Loss of leg, prayers for family member healing & peace."</p>
+          {/* Sidewalk Prayer Registry Excerpt (Active Intercession) */}
+          <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4 print:bg-gray-50 print:border-gray-300">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-800/80 print:border-gray-300">
+              <div>
+                <span className="font-bold text-white print:text-black text-xs uppercase tracking-wider flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-400 print:text-amber-700" />
+                  <span>Sidewalk Prayer Roster Excerpt (Active Intercession)</span>
+                </span>
+                <p className="text-[11px] text-slate-400 print:text-gray-600 mt-0.5">
+                  Lifting each neighbor up by name and need. Displaying the 20 most recent street prayers (scroll to view all {prayerRoster.length} prayers).
+                </p>
               </div>
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 print:bg-white print:border-gray-300">
-                <div className="font-bold text-amber-400 print:text-amber-700">Neighbor on Sidewalk • 11/07/2026</div>
-                <div className="text-slate-400 print:text-gray-600 text-[11px]">Paint Street & Main Street • Group: Hope Dealers</div>
-                <p className="text-slate-300 print:text-gray-800 text-xs mt-1 italic">"Grief, personal addiction recovery and breakthrough in family reconciliation."</p>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 print:text-black print:border-gray-400">
+                  {prayerRoster.length} Prayers Logged
+                </span>
+              </div>
+            </div>
+
+            {/* Scrollable Container showing the 20 most recent and scrollable for all */}
+            <div className="max-h-[580px] overflow-y-auto pr-1.5 space-y-3 print:max-h-none print:overflow-visible custom-impact-scrollbar">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                {prayerRoster.length === 0 ? (
+                  <div className="col-span-2 text-center py-8 text-slate-500 print:text-gray-500">
+                    No street prayer records logged for this reporting period.
+                  </div>
+                ) : (
+                  prayerRoster.map((pin, idx) => {
+                    const formattedDate = pin.timestamp
+                      ? new Date(pin.timestamp).toLocaleDateString(undefined, {
+                          month: 'numeric',
+                          day: 'numeric',
+                          year: 'numeric',
+                        })
+                      : 'Recent';
+
+                    const groupDisplay = Array.isArray(pin.groupMembers) && pin.groupMembers.length > 0
+                      ? pin.groupMembers.join(', ')
+                      : (pin.loggedByRecorder || 'Hope Dealers Team');
+
+                    return (
+                      <div
+                        key={pin.id || `prayer-${idx}`}
+                        className="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition space-y-2 print:bg-white print:border-gray-300 print:break-inside-avoid"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <div className="font-bold text-amber-400 print:text-amber-700 text-sm flex items-center gap-1.5">
+                              <Sparkles className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                              <span>{pin.firstName}</span>
+                            </div>
+                            <div className="text-slate-400 print:text-gray-600 text-[11px] flex items-center gap-1 mt-0.5">
+                              <MapPin className="w-3 h-3 shrink-0 text-phoenix-400" />
+                              <span>{pin.streetName} • {formattedDate}</span>
+                            </div>
+                          </div>
+
+                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider shrink-0 ${
+                            pin.type === 'both'
+                              ? 'bg-phoenix-600/20 text-phoenix-300 border border-phoenix-500/30'
+                              : 'bg-amber-600/20 text-amber-300 border border-amber-500/30'
+                          }`}>
+                            {pin.type === 'both' ? 'Prayer & Needs' : 'Prayer'}
+                          </span>
+                        </div>
+
+                        {pin.description && (
+                          <p className="text-slate-300 print:text-gray-800 text-xs leading-relaxed italic bg-slate-950/50 p-2.5 rounded-lg border border-slate-800/60 print:bg-gray-50 print:border-gray-200">
+                            "{pin.description}"
+                          </p>
+                        )}
+
+                        {pin.needCategories && pin.needCategories.length > 0 && (
+                          <div className="flex flex-wrap gap-1 pt-1">
+                            {pin.needCategories.map((cId) => {
+                              const c = NEED_CATEGORIES.find((n) => n.id === cId);
+                              return c ? (
+                                <span
+                                  key={cId}
+                                  className="px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-amber-300 border border-amber-500/20"
+                                >
+                                  {c.emoji} {c.shortLabel}
+                                </span>
+                              ) : null;
+                            })}
+                          </div>
+                        )}
+
+                        <div className="text-[10px] text-slate-500 print:text-gray-500 pt-1 border-t border-slate-800/80 print:border-gray-200 flex items-center justify-between">
+                          <span>Team: {groupDisplay}</span>
+                          <span>#{idx + 1}</span>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
